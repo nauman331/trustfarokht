@@ -13,9 +13,6 @@ export const getWebSocketConfig = () => ({
     open(ws: ServerWebSocket<WebSocketData>) {
         const data = ws.data as WebSocketData;
         connections.set(data.id, ws);
-        console.log(`Client connected: ${data.id}`);
-
-        // Broadcast connection event to handlers
         broadcast("connection", { socketId: data.id });
     },
     message(ws: ServerWebSocket<WebSocketData>, message: string | Buffer) {

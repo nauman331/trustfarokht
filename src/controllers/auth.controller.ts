@@ -150,10 +150,10 @@ const getMe = async (req: Request): Promise<Response> => {
             return Response.json({ message: 'Unauthorized' }, { status: 401 });
         }
 
-        // const cachedUser = await redis.get(`user:${user.userId}`);
-        // if (cachedUser) {
-        //     return Response.json({ user: JSON.parse(cachedUser) }, { status: 200 });
-        // }
+        const cachedUser = await redis.get(`user:${user.userId}`);
+        if (cachedUser) {
+            return Response.json({ user: JSON.parse(cachedUser) }, { status: 200 });
+        }
 
         const [userData] = await mysql<IUser[]>`
             SELECT * FROM users WHERE id = ${user.userId}
