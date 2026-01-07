@@ -1,0 +1,5 @@
+{
+  "name": "gateway",
+  "scripts": { "dev": "bun index.ts" },
+  "dependencies": { "@raddi/config": "workspace:*" }
+}

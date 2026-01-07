@@ -1,4 +1,4 @@
-import mysql from "../config/sqldb";
+import mysql from "../sqldb";
 
 export async function ordersMigration() {
   await mysql`

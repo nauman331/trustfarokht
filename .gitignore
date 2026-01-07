@@ -23,7 +23,9 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 .env.local
 
 # service account keys
-src/services/serviceAccountKey.json
+# service account keys (ignore any serviceAccountKey.json anywhere)
+**/serviceAccountKey.json
+# Keep a template under the repo if needed: serviceAccountKey.example.json
 
 # caches
 .eslintcache

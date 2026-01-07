@@ -1,35 +1,11 @@
 {
-  "name": "raddigo-server",
-  "version": "1.0.0",
-  "description": "RaddiGo Backend Server - Connecting households with scrap collectors",
-  "module": "index.ts",
-  "type": "module",
+  "name": "raddigo-root",
   "private": true,
-  "scripts": {
-    "start": "bun run index.ts",
-    "dev": "bun --watch run index.ts",
-    "build": "echo 'build complete'"
-  },
-  "keywords": [
-    "raddigo",
-    "scrap-collection",
-    "pakistan",
-    "raddi-wala",
-    "marketplace"
+  "workspaces": [
+    "apps/*",
+    "packages/*"
   ],
-  "author": "Nauman",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "dependencies": {
-    "@types/jsonwebtoken": "^9.0.10",
-    "@types/nodemailer": "^7.0.4",
-    "firebase-admin": "^13.6.0",
-    "jsonwebtoken": "^9.0.2",
-    "nodemailer": "^7.0.11"
+  "scripts": {
+    "dev:backend": "bun --filter './apps/*-service' dev & bun --filter gateway dev"
   }
 }

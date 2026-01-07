@@ -1,7 +1,7 @@
-import mysql from "../config/sqldb";
+import mysql from "../sqldb";
 
 export async function chatsMigration() {
-    await mysql`
+  await mysql`
     CREATE TABLE IF NOT EXISTS chats (
       id INT AUTO_INCREMENT PRIMARY KEY,
       senderId INT NOT NULL,
